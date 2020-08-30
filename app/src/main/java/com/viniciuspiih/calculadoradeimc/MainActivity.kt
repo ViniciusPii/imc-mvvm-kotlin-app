@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_main.*
@@ -31,6 +32,14 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
+        observe()
+
+        calculateButton.setOnClickListener {
+            onCalculateIMC()
+        }
+    }
+
+    private fun observe() {
         viewModel.imc.observe(this, Observer {
             resultTextView.text = getString(R.string.format).format(it)
             resultTextView.visibility = View.VISIBLE
@@ -40,21 +49,22 @@ class MainActivity : AppCompatActivity() {
             messageTextView.text = it
             messageTextView.visibility = View.VISIBLE
         })
+    }
 
-        calculateButton.setOnClickListener {
-            hideKeyboard(calculateButton)
+    private fun onCalculateIMC() {
+        hideKeyboard(calculateButton)
 
-            if (validationOk()) {
-                val weight = weightEditText.text.toString().toFloat()
-                val height = heightEditText.text.toString().toFloat()
+        if (validationOk()) {
+            val weight = weightEditText.text.toString().toFloat()
+            val height = heightEditText.text.toString().toFloat()
 
-                viewModel.calculateIMC(weight, height, this)
-            } else {
-                Toast.makeText(applicationContext,
-                    getString(R.string.empty_fields),
-                    Toast.LENGTH_SHORT)
-                    .show()
-            }
+            viewModel.calculateIMC(weight, height, this)
+
+        } else {
+            Toast.makeText(applicationContext,
+                getString(R.string.empty_fields),
+                Toast.LENGTH_SHORT)
+                .show()
         }
     }
 

@@ -26,7 +26,6 @@ class MainViewModel : ViewModel() {
             else -> _imcResult.value = context.getString(R.string.obesity_three)
         }
 
-
         _imc.value = result
     }
 
