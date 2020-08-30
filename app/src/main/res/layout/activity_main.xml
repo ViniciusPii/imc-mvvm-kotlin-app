@@ -19,27 +19,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <EditText
+    <com.santalu.maskedittext.MaskEditText
         android:id="@+id/edit_weight"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:hint="@string/hint_weight"
         android:inputType="numberDecimal"
+        app:met_mask="###"
         android:paddingLeft="8dp"
         app:layout_constraintBottom_toTopOf="@+id/edit_height"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_title" />
 
-    <EditText
+    <com.santalu.maskedittext.MaskEditText
         android:id="@+id/edit_height"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:hint="@string/hint_height"
-        android:inputType="numberDecimal"
+        android:inputType="number"
         android:paddingLeft="8dp"
+        app:met_mask="#.##"
         app:layout_constraintBottom_toTopOf="@id/button_calculate"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
