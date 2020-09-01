@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".MainActivity">
+    tools:context=".ui.presentation.imc.MainActivity">
 
     <TextView
         android:id="@+id/text_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/title"
-        android:textSize="16dp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@id/edit_weight"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -27,7 +27,8 @@
         android:hint="@string/hint_weight"
         android:inputType="numberDecimal"
         app:met_mask="###"
-        android:paddingLeft="8dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="0dp"
         app:layout_constraintBottom_toTopOf="@+id/edit_height"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -40,7 +41,8 @@
         android:layout_marginTop="16dp"
         android:hint="@string/hint_height"
         android:inputType="number"
-        android:paddingLeft="8dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="0dp"
         app:met_mask="#.##"
         app:layout_constraintBottom_toTopOf="@id/button_calculate"
         app:layout_constraintLeft_toLeftOf="parent"
